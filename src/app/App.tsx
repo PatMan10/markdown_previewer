@@ -6,11 +6,14 @@ import "./app.css";
 //--------LIBS----------------
 import React from "react";
 //--------UI_COMP----------------
+import Editor from "./ui_components/editor/Editor";
+import Previewer from "./ui_components/previewer/Previewer";
 
 const App: React.FC = () => {
   return (
-    <main className="red-bg flex-row-aiC-jcC">
-      <h1>Mark Down Previewer</h1>
+    <main className="lightBlue-bg flex-col-aiC p-10e">
+      <Editor />
+      <Previewer />
     </main>
   );
 };
