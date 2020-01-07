@@ -1,9 +1,10 @@
 .editor-container {
   margin-bottom: 30px;
-  min-width: 90vw;
+  min-width: 80vw;
 }
 
 .editor-header {
+  align-items: center;
   background-color: lightSeaGreen;
   border: 1px solid black;
   display: flex;
@@ -23,5 +24,9 @@
 }
 
 .editor {
+  border-color: black;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  min-height: 40px;
   width: 100%;
 }

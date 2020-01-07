@@ -1,7 +1,7 @@
 //--------CSS----------------
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
-import "pmt-kickstart.css/src/kickstart.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "pmt-kickstart.css/src/kickstart.min.css";
 import "./app.css";
 //--------LIBS----------------
 import React from "react";
@@ -9,13 +9,91 @@ import React from "react";
 import Editor from "./ui_components/editor/Editor";
 import Previewer from "./ui_components/previewer/Previewer";
 
-const App: React.FC = () => {
-  return (
-    <main className="lightBlue-bg flex-col-aiC p-10e">
-      <Editor />
-      <Previewer />
-    </main>
-  );
-};
+interface Props {}
+
+interface State {
+  editorIsExpanded: boolean;
+  editorIsVisible: boolean;
+  previewerIsExpanded: boolean;
+  previewerIsVisible: boolean;
+}
+
+class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      editorIsExpanded: false,
+      editorIsVisible: true,
+      previewerIsExpanded: false,
+      previewerIsVisible: true
+    };
+  }
+
+  expandEditor = () => {
+    console.log("expand Editor");
+    this.setState({
+      editorIsExpanded: true,
+      editorIsVisible: true,
+      previewerIsExpanded: false,
+      previewerIsVisible: false
+    });
+  };
+
+  compressEditor = () => {
+    console.log("compress Editor");
+    this.setState({
+      editorIsExpanded: false,
+      editorIsVisible: true,
+      previewerIsExpanded: false,
+      previewerIsVisible: true
+    });
+  };
+
+  expandPreviewer = () => {
+    console.log("expand Previewer");
+    this.setState({
+      editorIsExpanded: false,
+      editorIsVisible: false,
+      previewerIsExpanded: true,
+      previewerIsVisible: true
+    });
+  };
+
+  compressPreviewer = () => {
+    console.log("compress Previewer");
+    this.setState({
+      editorIsExpanded: false,
+      editorIsVisible: true,
+      previewerIsExpanded: false,
+      previewerIsVisible: true
+    });
+  };
+
+  render() {
+    const {
+      editorIsExpanded,
+      editorIsVisible,
+      previewerIsExpanded,
+      previewerIsVisible
+    } = this.state;
+
+    return (
+      <main className="lightBlue-bg flex-col-aiC p-10e">
+        <Editor
+          isExpanded={editorIsExpanded}
+          isVisible={editorIsVisible}
+          expand={this.expandEditor}
+          compress={this.compressEditor}
+        />
+        <Previewer
+          isExpanded={previewerIsExpanded}
+          isVisible={previewerIsVisible}
+          expand={this.expandPreviewer}
+          compress={this.compressPreviewer}
+        />
+      </main>
+    );
+  }
+}
 
 export default App;
