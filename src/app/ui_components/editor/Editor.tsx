@@ -9,6 +9,8 @@ import expandIcon from "../../assests/images/expand-arrows-alt-solid.svg";
 import compressIcon from "../../assests/images/compress-arrows-alt-solid.svg";
 
 interface Props {
+  text: string;
+  onChangeText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   isExpanded: boolean;
   isVisible: boolean;
   expand: () => void;
@@ -16,6 +18,8 @@ interface Props {
 }
 
 const Editor: React.FC<Props> = ({
+  text,
+  onChangeText,
   isExpanded,
   isVisible,
   expand,
@@ -35,12 +39,18 @@ const Editor: React.FC<Props> = ({
           <img src={sizeIcon} className="full-icon" alt="FCC" />
         </div>
       </div>
-      <textarea className="editor"></textarea>
+      <textarea
+        className="editor"
+        value={text}
+        onChange={onChangeText}
+      ></textarea>
     </div>
   );
 };
 
 Editor.propTypes = {
+  text: PropTypes.string.isRequired,
+  onChangeText: PropTypes.func.isRequired,
   isExpanded: PropTypes.bool.isRequired,
   isVisible: PropTypes.bool.isRequired,
   expand: PropTypes.func.isRequired,

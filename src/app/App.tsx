@@ -12,6 +12,7 @@ import Previewer from "./ui_components/previewer/Previewer";
 interface Props {}
 
 interface State {
+  editorText: string;
   editorIsExpanded: boolean;
   editorIsVisible: boolean;
   previewerIsExpanded: boolean;
@@ -22,12 +23,17 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
+      editorText: "# Some heading",
       editorIsExpanded: false,
       editorIsVisible: true,
       previewerIsExpanded: false,
       previewerIsVisible: true
     };
   }
+
+  onChangeEditorText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({ editorText: e.target.value });
+  };
 
   expandEditor = () => {
     console.log("expand Editor");
@@ -71,6 +77,7 @@ class App extends React.Component<Props, State> {
 
   render() {
     const {
+      editorText,
       editorIsExpanded,
       editorIsVisible,
       previewerIsExpanded,
@@ -80,6 +87,8 @@ class App extends React.Component<Props, State> {
     return (
       <main className="lightBlue-bg flex-col-aiC p-10e">
         <Editor
+          text={editorText}
+          onChangeText={this.onChangeEditorText}
           isExpanded={editorIsExpanded}
           isVisible={editorIsVisible}
           expand={this.expandEditor}
