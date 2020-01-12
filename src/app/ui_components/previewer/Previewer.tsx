@@ -9,6 +9,7 @@ import expandIcon from "../../assests/images/expand-arrows-alt-solid.svg";
 import compressIcon from "../../assests/images/compress-arrows-alt-solid.svg";
 
 interface Props {
+  markdown: string;
   isExpanded: boolean;
   isVisible: boolean;
   expand: () => void;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const Previewer: React.FC<Props> = ({
+  markdown,
   isExpanded,
   isVisible,
   expand,
@@ -35,12 +37,16 @@ const Previewer: React.FC<Props> = ({
           <img src={sizeIcon} className="full-icon" alt="FCC" />
         </div>
       </div>
-      <div className="previewer">Formatted mark down goes here.</div>
+      <div
+        className="previewer"
+        dangerouslySetInnerHTML={{ __html: markdown }}
+      />
     </div>
   );
 };
 
 Previewer.propTypes = {
+  markdown: PropTypes.string.isRequired,
   isExpanded: PropTypes.bool.isRequired,
   isVisible: PropTypes.bool.isRequired,
   expand: PropTypes.func.isRequired,

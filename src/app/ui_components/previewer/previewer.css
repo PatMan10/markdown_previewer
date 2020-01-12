@@ -1,5 +1,6 @@
 .previewer-container {
-  min-width: 95vw;
+  max-width: 95vw;
+  min-width: 70vw;
 }
 
 .previewer-header {
@@ -23,9 +24,10 @@
 }
 
 .previewer {
-  background-color: white;
+  background-color: #c9e9f6;
   border-color: black;
   border-style: solid;
   border-width: 0 1px 1px 1px;
+  padding: 0.5em;
   width: 100%;
 }

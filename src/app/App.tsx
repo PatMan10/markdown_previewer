@@ -5,9 +5,12 @@ import "@patman10/kickstart.css/dist/kickstart.min.css";
 import "./app.css";
 //--------LIBS----------------
 import React from "react";
+import marked from "marked";
 //--------UI_COMP----------------
 import Editor from "./ui_components/editor/Editor";
 import Previewer from "./ui_components/previewer/Previewer";
+//--------UTILS----------------
+import C from "./utils/Constants";
 
 interface Props {}
 
@@ -15,6 +18,7 @@ interface State {
   editorText: string;
   editorIsExpanded: boolean;
   editorIsVisible: boolean;
+  previewerMarkdown: string;
   previewerIsExpanded: boolean;
   previewerIsVisible: boolean;
 }
@@ -22,17 +26,22 @@ interface State {
 class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    const editorText = C.defaultText;
+    const previewerMarkdown = marked(editorText);
     this.state = {
-      editorText: "# Some heading",
+      editorText,
       editorIsExpanded: false,
       editorIsVisible: true,
+      previewerMarkdown,
       previewerIsExpanded: false,
       previewerIsVisible: true
     };
   }
 
   onChangeEditorText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    this.setState({ editorText: e.target.value });
+    const text = e.target.value;
+    const markdown = marked(text);
+    this.setState({ editorText: text, previewerMarkdown: markdown });
   };
 
   expandEditor = () => {
@@ -80,6 +89,8 @@ class App extends React.Component<Props, State> {
       editorText,
       editorIsExpanded,
       editorIsVisible,
+
+      previewerMarkdown,
       previewerIsExpanded,
       previewerIsVisible
     } = this.state;
@@ -95,6 +106,7 @@ class App extends React.Component<Props, State> {
           compress={this.compressEditor}
         />
         <Previewer
+          markdown={previewerMarkdown}
           isExpanded={previewerIsExpanded}
           isVisible={previewerIsVisible}
           expand={this.expandPreviewer}

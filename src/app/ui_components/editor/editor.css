@@ -24,9 +24,11 @@
 }
 
 .editor {
+  background-color: #c9e9f6;
   border-color: black;
   border-style: solid;
   border-width: 0 1px 1px 1px;
-  min-height: 40px;
+  min-height: 180px;
+  padding: 0.3em;
   width: 100%;
 }
