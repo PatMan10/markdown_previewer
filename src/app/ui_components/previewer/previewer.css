@@ -31,3 +31,44 @@
   padding: 0.5em;
   width: 100%;
 }
+
+/************markdown previewer content CSS*************/
+
+code,
+pre {
+  background-color: white;
+}
+
+blockquote {
+  border-left: 4px solid gray;
+  color: gray;
+  margin-left: 25px;
+  padding-left: 4px;
+}
+
+th {
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+
+@media (min-width: 320px) {
+  img {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 600px) {
+  img {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1000px) {
+  img {
+    max-width: 800px;
+  }
+}
