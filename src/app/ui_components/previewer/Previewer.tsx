@@ -26,9 +26,12 @@ const Previewer: React.FC<Props> = ({
 }) => {
   const sizeIcon = isExpanded ? compressIcon : expandIcon;
   const onClickSizeIcon = isExpanded ? compress : expand;
+  const containerClassName = isExpanded
+    ? "previewer-container-full"
+    : "previewer-container";
 
   return !isVisible ? null : (
-    <div className="previewer-container">
+    <div className={containerClassName} >
       <Toolbar
         headingText="Previewer"
         sizeIcon={sizeIcon}

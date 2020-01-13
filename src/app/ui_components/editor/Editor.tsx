@@ -28,9 +28,12 @@ const Editor: React.FC<Props> = ({
 }) => {
   const sizeIcon = isExpanded ? compressIcon : expandIcon;
   const onClickSizeIcon = isExpanded ? compress : expand;
+  const containerClassName = isExpanded
+    ? "editor-container-full"
+    : "editor-container";
 
   return !isVisible ? null : (
-    <div className="editor-container">
+    <div className={containerClassName}>
       <Toolbar
         headingText="Editor"
         sizeIcon={sizeIcon}

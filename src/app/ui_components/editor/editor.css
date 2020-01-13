@@ -1,6 +1,12 @@
 .editor-container {
   margin-bottom: 30px;
+  min-height: 180px;
   min-width: 50vw;
+}
+
+.editor-container-full {
+  min-height: 85vh;
+  min-width: 90vw;
 }
 
 .editor {
@@ -8,7 +14,7 @@
   border-color: black;
   border-style: solid;
   border-width: 0 1px 1px 1px;
-  min-height: 180px;
+  height: 100%;
   padding: 0.3em;
   width: 100%;
 }
