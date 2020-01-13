@@ -1,0 +1,20 @@
+.toolbar {
+  align-items: center;
+  background-color: lightSeaGreen;
+  border: 1px solid black;
+  display: flex;
+}
+
+.fcc-icon {
+  margin: 0 10px;
+}
+
+.heading {
+  flex-grow: 2;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.size-icon {
+  margin: 0 10px;
+}

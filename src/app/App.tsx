@@ -18,7 +18,7 @@ interface State {
   editorText: string;
   editorIsExpanded: boolean;
   editorIsVisible: boolean;
-  previewerMarkdown: string;
+  previewerMarkup: string;
   previewerIsExpanded: boolean;
   previewerIsVisible: boolean;
 }
@@ -27,12 +27,12 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     const editorText = C.defaultText;
-    const previewerMarkdown = marked(editorText);
+    const previewerMarkup = marked(editorText);
     this.state = {
       editorText,
       editorIsExpanded: false,
       editorIsVisible: true,
-      previewerMarkdown,
+      previewerMarkup,
       previewerIsExpanded: false,
       previewerIsVisible: true
     };
@@ -40,8 +40,8 @@ class App extends React.Component<Props, State> {
 
   onChangeEditorText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
-    const markdown = marked(text);
-    this.setState({ editorText: text, previewerMarkdown: markdown });
+    const markup = marked(text);
+    this.setState({ editorText: text, previewerMarkup: markup });
   };
 
   expandEditor = () => {
@@ -90,7 +90,7 @@ class App extends React.Component<Props, State> {
       editorIsExpanded,
       editorIsVisible,
 
-      previewerMarkdown,
+      previewerMarkup,
       previewerIsExpanded,
       previewerIsVisible
     } = this.state;
@@ -106,7 +106,7 @@ class App extends React.Component<Props, State> {
           compress={this.compressEditor}
         />
         <Previewer
-          markdown={previewerMarkdown}
+          markup={previewerMarkup}
           isExpanded={previewerIsExpanded}
           isVisible={previewerIsVisible}
           expand={this.expandPreviewer}

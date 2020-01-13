@@ -3,26 +3,6 @@
   min-width: 70vw;
 }
 
-.previewer-header {
-  align-items: center;
-  background-color: lightSeaGreen;
-  border: 1px solid black;
-  display: flex;
-}
-
-.fcc-icon {
-  margin: 0 10px;
-}
-
-.previewer-heading {
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
-.size-icon {
-  margin: 0 10px;
-}
-
 .previewer {
   background-color: #c9e9f6;
   border-color: black;
