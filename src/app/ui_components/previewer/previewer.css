@@ -1,10 +1,10 @@
 .previewer-container {
-  max-width: 95vw;
+  max-width: 85vw;
   min-width: 70vw;
 }
 
 .previewer-container-full {
-  min-height: 85vh;
+  max-width: 95vw;
   min-width: 90vw;
 }
 
@@ -14,7 +14,6 @@
   border-style: solid;
   border-width: 0 1px 1px 1px;
   padding: 0.5em;
-  width: 100%;
 }
 
 /************markdown previewer content CSS*************/

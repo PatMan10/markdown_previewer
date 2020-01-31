@@ -33,14 +33,14 @@ const Editor: React.FC<Props> = ({
     : "editor-container";
 
   return !isVisible ? null : (
-    <div className={containerClassName}>
+    <div className={`${containerClassName} flex-col`}>
       <Toolbar
         headingText="Editor"
         sizeIcon={sizeIcon}
         onClickSizeIcon={onClickSizeIcon}
       />
       <textarea
-        className="editor"
+        className="editor flex-g2"
         value={text}
         onChange={onChangeText}
       ></textarea>

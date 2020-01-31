@@ -1,7 +1,7 @@
 .editor-container {
   margin-bottom: 30px;
   min-height: 180px;
-  min-width: 50vw;
+  min-width: 75vw;
 }
 
 .editor-container-full {
@@ -14,7 +14,13 @@
   border-color: black;
   border-style: solid;
   border-width: 0 1px 1px 1px;
-  height: 100%;
   padding: 0.3em;
-  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .editor-container {
+    min-height: 240px;
+    min-width: initial;
+    width: 50vw;
+  }
 }
