@@ -18,9 +18,16 @@
 
 /************markdown previewer content CSS*************/
 
+h1,
+h2 {
+  text-decoration: underline;
+}
+
 code,
 pre {
   background-color: white;
+  color: black;
+  font-weight: bold;
 }
 
 blockquote {
@@ -39,20 +46,7 @@ td {
   border: 1px solid black;
 }
 
-@media (min-width: 320px) {
-  img {
-    max-width: 300px;
-  }
-}
-
-@media (min-width: 600px) {
-  img {
-    max-width: 500px;
-  }
-}
-
-@media (min-width: 1000px) {
-  img {
-    max-width: 800px;
-  }
+p > img {
+  max-height: 100%;
+  max-width: 100%;
 }
