@@ -19,11 +19,11 @@ const Toolbar: React.FC<Props> = ({
 }) => {
   return (
     <div className="toolbar">
-      <div className="fcc-icon icon icon-s-square">
+      <div className="fcc-icon icon icon-xs-square">
         <img src={fccIcon} className="full-icon" alt="FCC" />
       </div>
       <span className="heading">{headingText}</span>
-      <div className="size-icon icon icon-s-square" onClick={onClickSizeIcon}>
+      <div className="size-icon icon icon-xxs-square" onClick={onClickSizeIcon}>
         <img src={sizeIcon} className="full-icon" alt="FCC" />
       </div>
     </div>
